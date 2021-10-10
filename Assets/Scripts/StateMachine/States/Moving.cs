@@ -13,6 +13,11 @@ namespace Bangboom.StateMachine
 
 		public override void OnUpdateLogic()
 		{
+			if(!movementStateMachine.View.IsMine)
+			{
+				return;
+			}
+			
 			base.OnUpdateLogic();
 			
 			var movementDirection = movementStateMachine.InputReader.MovementDirection;
@@ -27,6 +32,11 @@ namespace Bangboom.StateMachine
 
 		public override void OnUpdatePhysics()
 		{
+			if(!movementStateMachine.View.IsMine)
+			{
+				return;
+			}
+			
 			base.OnUpdatePhysics();
 			var movementDirection = movementStateMachine.InputReader.MovementDirection;
 			movementStateMachine.RigidBody2D.velocity = movementDirection * movementStateMachine.Speed;

@@ -13,6 +13,11 @@ namespace Bangboom.StateMachine
 
 		public override void OnUpdateLogic()
 		{
+			if(!movementStateMachine.View.IsMine)
+			{
+				return;
+			}
+			
 			base.OnUpdateLogic();
 
 			var movementDirection = movementStateMachine.InputReader.MovementDirection;

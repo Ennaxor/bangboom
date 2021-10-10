@@ -1,5 +1,6 @@
 using System;
 using Bangboom.Player.Input;
+using Photon.Pun;
 using UnityEngine;
 
 namespace Bangboom.StateMachine
@@ -9,8 +10,10 @@ namespace Bangboom.StateMachine
 		[HideInInspector] public Idle IdleState;
 		[HideInInspector] public Moving MovingState;
 
+		[Header("Player Logic")]
 		public InputReader InputReader;
 		public Rigidbody2D RigidBody2D;
+		public PhotonView View;
 		public float Speed = 4f;
 
 		private void Awake()

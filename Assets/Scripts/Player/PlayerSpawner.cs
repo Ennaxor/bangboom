@@ -15,13 +15,7 @@ namespace BangBoom.Player
 
         private void Start()
         {
-            var player = PhotonNetwork.Instantiate(playerPrefab.name, GetRandomInitialPos(), Quaternion.identity, 0);
-            var inputReader = player.GetComponent<InputReader>();
-            //TODO check this
-            if(PhotonNetwork.CountOfPlayers > 1)
-            {
-                inputReader.PlayerId = 1;
-            }
+            PhotonNetwork.Instantiate(playerPrefab.name, GetRandomInitialPos(), Quaternion.identity, 0);
         }
 
         private Vector2 GetRandomInitialPos()
