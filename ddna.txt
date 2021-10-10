@@ -1,0 +1,10 @@
+   UiInteraction    |		    UiName 		   |    Description
+-UiInterac ---> ?		-TUTORIAL MISSION		-TUTORIAL STEP
+				-REAL GAME			-CUSTOM DESC
+				-LUCKY BALL			-CUSTOM DESC
+
+
+UiInteraction -> UiInteraction
+UiLocation
+UiTime
+lowerCaseSnakeCase
