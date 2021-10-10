@@ -410,6 +410,17 @@
             </e>
           </e>
         </e>
+        <e p="Scripts" t="Include">
+          <e p="StateMachine" t="Include">
+            <e p="BaseState.cs" t="Include" />
+            <e p="MovementStateMachine.cs" t="Include" />
+            <e p="StateMachine.cs" t="Include" />
+            <e p="States" t="Include">
+              <e p="Idle.cs" t="Include" />
+              <e p="Moving.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Troll Bridge Studios" t="Include">
           <e p="2D Starter Kit" t="Include">
             <e p="_Scripts" t="Include">
