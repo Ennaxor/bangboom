@@ -4,39 +4,25 @@ namespace Bangboom.StateMachine
 {
 	public class Idle : BaseState
 	{
-		private float horizontalInput;
+		private readonly MovementStateMachine movementStateMachine;
 		
-		public Idle(MovementStateMachine stateMachine) : base("Idle", stateMachine)
+		public Idle(StateMachine stateMachine) : base("Idle", stateMachine)
 		{
-		}
-
-		public override void Enter()
-		{
-			base.Enter();
-			horizontalInput = 0f;
+			movementStateMachine = stateMachine as MovementStateMachine;
 		}
 
 		public override void OnUpdateLogic()
 		{
 			base.OnUpdateLogic();
-			horizontalInput = Input.GetAxis("Horizontal");
 
-			if(IsHorizontalInputMoreThanZero())
+			var movementDirection = movementStateMachine.InputReader.MovementDirection;
+
+			if(IsInputMoreThanZero(movementDirection.x) || IsInputMoreThanZero(movementDirection.y))
 			{
-				StateMachine.ChangeState(((MovementStateMachine) StateMachine).MovingState);
+				StateMachine.ChangeState(movementStateMachine.MovingState);
 			}
 		}
 
-		private bool IsHorizontalInputMoreThanZero() => Mathf.Abs(horizontalInput) > Mathf.Epsilon;
-
-		public override void OnUpdatePhysics()
-		{
-			base.OnUpdatePhysics();
-		}
-
-		public override void Exit()
-		{
-			base.Exit();
-		}
+		private bool IsInputMoreThanZero(float input) => Mathf.Abs(input) > Mathf.Epsilon;
 	}
 }

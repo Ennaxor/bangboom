@@ -1,4 +1,5 @@
 using System;
+using Bangboom.Player.Input;
 using UnityEngine;
 
 namespace Bangboom.StateMachine
@@ -7,6 +8,10 @@ namespace Bangboom.StateMachine
 	{
 		[HideInInspector] public Idle IdleState;
 		[HideInInspector] public Moving MovingState;
+
+		public InputReader InputReader;
+		public Rigidbody2D RigidBody2D;
+		public float Speed = 4f;
 
 		private void Awake()
 		{
