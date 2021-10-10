@@ -6,22 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Troll Bridge Studios/2D Starter Kit/_Scenes/Demos/Demo Start.unity
+    path: Assets/Scenes/StartUpScene.unity
+    guid: 5a42e213b2160254a98e7e6ed3570b3c
   - enabled: 1
-    path: Assets/Troll Bridge Studios/2D Starter Kit/_Scenes/Additional Scenes (Do
-      not run)/MainMenu.unity
+    path: Assets/Scenes/LobbyScene.unity
+    guid: 3ff9a7318f1327b4d969e0b6cc56ad2d
   - enabled: 1
-    path: Assets/Troll Bridge Studios/2D Starter Kit/_Scenes/Additional Scenes (Do
-      not run)/MainWorld.unity
+    path: Assets/Scenes/Game.unity
+    guid: 46f76b9010fbb3a4b9cfe5bdcbec5a47
   - enabled: 1
-    path: Assets/Troll Bridge Studios/2D Starter Kit/_Scenes/Additional Scenes (Do
-      not run)/HouseMd.unity
-  - enabled: 1
-    path: Assets/Troll Bridge Studios/2D Starter Kit/_Scenes/Additional Scenes (Do
-      not run)/HouseLrg.unity
-  - enabled: 1
-    path: Assets/Troll Bridge Studios/2D Starter Kit/_Scenes/Additional Scenes (Do
-      not run)/HouseSml.unity
-  - enabled: 1
-    path: Assets/Troll Bridge Studios/2D Starter Kit/_Scenes/Additional Scenes (Do
-      not run)/InnBasement.unity
+    path: Assets/Scenes/GameScene.unity
+    guid: f80e67280bb83a54986783faa6055574
+  m_configObjects: {}
