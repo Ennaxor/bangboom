@@ -1,8 +1,9 @@
+using BangBoom.Config;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BangBoom
+namespace BangBoom.Server
 {
     public class EnterRoomController : MonoBehaviourPunCallbacks
     {

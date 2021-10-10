@@ -1,4 +1,3 @@
-using System;
 using Rewired;
 using UnityEngine;
 
@@ -6,7 +5,7 @@ namespace Bangboom.Player.Input
 {
 	public class InputReader : MonoBehaviour
 	{
-		[SerializeField] private int playerId = 0;
+		public int PlayerId = 0;
 		
 		private Rewired.Player player;
 		
@@ -19,7 +18,7 @@ namespace Bangboom.Player.Input
 		
 		private void Awake()
 		{
-			player = ReInput.players.GetPlayer(playerId);
+			player = ReInput.players.GetPlayer(PlayerId);
 		}
 
 		private void Update()

@@ -1,7 +1,8 @@
+using BangBoom.Config;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
-namespace BangBoom
+namespace BangBoom.Server
 {
     public class ConnectToServerController : MonoBehaviourPunCallbacks
     {

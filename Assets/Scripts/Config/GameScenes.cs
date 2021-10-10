@@ -1,8 +1,8 @@
-namespace BangBoom
+namespace BangBoom.Config
 {
     public static class Scenes
     {
-        public const string StartUpScene = "StartUpScene";
+        public const string StartupScene = "StartupScene";
         public const string LobbyScene = "LobbyScene";
         public const string GameScene = "GameScene";
     }
