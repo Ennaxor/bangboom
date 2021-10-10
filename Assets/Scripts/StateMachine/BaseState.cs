@@ -4,13 +4,13 @@ namespace Bangboom.StateMachine
 {
 	public class BaseState
 	{
-		public string Name;
-		protected StateMachine StateMachine;
-		
-		public BaseState(string name, StateMachine stateMachine)
+		public readonly string Name;
+		protected readonly StateMachine StateMachine;
+
+		protected BaseState(string name, StateMachine stateMachine)
 		{
-			this.Name = name;
-			this.StateMachine = stateMachine;
+			Name = name;
+			StateMachine = stateMachine;
 		}
 		
 		public virtual void Enter()
