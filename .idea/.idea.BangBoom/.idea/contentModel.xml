@@ -611,6 +611,9 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Background" t="Include">
+            <e p="ScrollingBackground.cs" t="Include" />
+          </e>
           <e p="config" t="Include">
             <e p="GameScenes.cs" t="Include" />
           </e>
