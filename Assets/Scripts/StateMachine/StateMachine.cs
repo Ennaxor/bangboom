@@ -29,7 +29,7 @@ namespace Bangboom.StateMachine
 		/// <summary>
 		/// We update our physics layer in the late update
 		/// </summary>
-		private void LateUpdate()
+		private void FixedUpdate()
 		{
 			currentState?.OnUpdatePhysics();
 		}
