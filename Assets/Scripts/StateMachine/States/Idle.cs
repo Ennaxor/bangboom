@@ -11,6 +11,12 @@ namespace Bangboom.StateMachine
 			movementStateMachine = stateMachine as MovementStateMachine;
 		}
 
+		public override void Enter()
+		{
+			base.Enter();
+			movementStateMachine.RigidBody2D.velocity = Vector2.zero;
+		}
+
 		public override void OnUpdateLogic()
 		{
 			if(!movementStateMachine.View.IsMine)

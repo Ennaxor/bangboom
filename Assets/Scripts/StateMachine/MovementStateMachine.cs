@@ -1,4 +1,3 @@
-using System;
 using Bangboom.Player.Input;
 using Photon.Pun;
 using UnityEngine;

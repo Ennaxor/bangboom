@@ -5,6 +5,8 @@ namespace Bangboom.StateMachine
 {
 	public class StateMachine : MonoBehaviour
 	{
+		public bool CanUpdate { get; set; }
+		
 		private BaseState currentState;
 		
 		private void Start()
@@ -23,7 +25,10 @@ namespace Bangboom.StateMachine
 		/// </summary>
 		private void Update()
 		{
-			currentState?.OnUpdateLogic();
+			if(CanUpdate)
+			{
+				currentState?.OnUpdateLogic();
+			}
 		}
 
 		/// <summary>
@@ -31,7 +36,10 @@ namespace Bangboom.StateMachine
 		/// </summary>
 		private void FixedUpdate()
 		{
-			currentState?.OnUpdatePhysics();
+			if(CanUpdate)
+			{
+				currentState?.OnUpdatePhysics();
+			}
 		}
 
 		public void ChangeState(BaseState newState)

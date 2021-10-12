@@ -618,10 +618,18 @@
             <e p="GameScenes.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
+            <e p="Client" t="Include">
+              <e p="PlayerClient.cs" t="Include" />
+            </e>
             <e p="Input" t="Include">
               <e p="InputReader.cs" t="Include" />
             </e>
+            <e p="PlayerPhysicsSync.cs" t="Include" />
             <e p="PlayerSpawner.cs" t="Include" />
+            <e p="PlayerSyncStructs.cs" t="Include" />
+            <e p="Server" t="Include">
+              <e p="PlayerServer.cs" t="Include" />
+            </e>
           </e>
           <e p="Server" t="Include">
             <e p="ConnectToServerController.cs" t="Include" />
