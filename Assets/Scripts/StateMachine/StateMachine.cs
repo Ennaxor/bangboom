@@ -23,12 +23,11 @@ namespace Bangboom.StateMachine
 		/// <summary>
 		/// We update our logic layer in the normal update
 		/// </summary>
-		private void Update()
+		protected virtual void Update()
 		{
 			if(CanUpdate)
 			{
 				currentState?.OnUpdateLogic();
-				currentState?.OnUpdatePhysics();
 			}
 		}
 
@@ -39,7 +38,7 @@ namespace Bangboom.StateMachine
 		{
 			if(CanUpdate)
 			{
-				
+				currentState?.OnUpdatePhysics();
 			}
 		}
 

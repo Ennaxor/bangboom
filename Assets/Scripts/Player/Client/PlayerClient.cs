@@ -156,7 +156,7 @@ namespace Bangboom.Player.Client
             var bufferSlot = receivedStateMsg.TickNumber % CClientBufferSize;
             var positionError = receivedStateMsg.Position - clientStateBuffer[bufferSlot].Position;
             var rotationError = 0;
-
+            
             if (!(positionError.sqrMagnitude > 0.2f) && !(rotationError > 0.1f))
             {
                 return;
@@ -165,8 +165,9 @@ namespace Bangboom.Player.Client
             // If the packet is valid update our network proxy
             if (!float.IsNaN(receivedStateMsg.Position.x))
             {
-                proxyClientPlayer.position = Vector3.Lerp(proxyClientPlayer.position,
-                    receivedStateMsg.Position, 0.5f);
+                /*proxyClientPlayer.position = Vector3.Lerp(proxyClientPlayer.position,
+                    receivedStateMsg.Position, 0.5f);*/
+                proxyClientPlayer.position = receivedStateMsg.Position;
                 proxyClientPlayer.rotation = receivedStateMsg.Rotation;
                 proxyClientPlayer.velocity = receivedStateMsg.Velocity;
                 proxyClientPlayer.angularVelocity = receivedStateMsg.AngularVelocity;
@@ -200,7 +201,7 @@ namespace Bangboom.Player.Client
                 return;
             }
             
-            if ((proxyClientPlayer.position - movementStateMachine.RigidBody2D.position).sqrMagnitude >= .1f)
+            if ((proxyClientPlayer.position - movementStateMachine.RigidBody2D.position).sqrMagnitude >= .01f)
             {
                 movementStateMachine.RigidBody2D.position = Vector3.Lerp(movementStateMachine.RigidBody2D.position, proxyClientPlayer.position,
                     dt * smoothingSpeed);
@@ -216,7 +217,8 @@ namespace Bangboom.Player.Client
             currentState.Position = rigidBody.position;
             currentState.Rotation = rigidBody.rotation;
             
-            Move(inputs.MovementDirection);
+            // This moves the player
+            movementStateMachine.SetMovementDirection(inputs.MovementDirection);
 
             if (inputs.SubmitButton == 1)
             {
@@ -224,14 +226,6 @@ namespace Bangboom.Player.Client
             }
         }
 
-        /// <summary>
-        /// Performs player movement 
-        /// </summary>
-        private void Move(Vector2 movementDirection)
-        {
-            movementStateMachine.MovementDirection = movementDirection;
-        }
-        
         /// <summary>
         /// Performs player input submit 
         /// </summary>
