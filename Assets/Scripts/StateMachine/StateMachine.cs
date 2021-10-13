@@ -28,6 +28,7 @@ namespace Bangboom.StateMachine
 			if(CanUpdate)
 			{
 				currentState?.OnUpdateLogic();
+				currentState?.OnUpdatePhysics();
 			}
 		}
 
@@ -38,7 +39,7 @@ namespace Bangboom.StateMachine
 		{
 			if(CanUpdate)
 			{
-				currentState?.OnUpdatePhysics();
+				
 			}
 		}
 

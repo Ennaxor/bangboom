@@ -99,7 +99,7 @@ namespace Bangboom.Player.Server
                     //But we still want to send state to other clients
                     if (!photonView.IsMine)
                     {
-                       // movementStateMachine.CanUpdate = true;
+                        movementStateMachine.CanUpdate = true;
                         Move(inputMsg.Inputs[i].MovementDirection);
 
                         if (inputMsg.Inputs[i].SubmitButton == 1)
@@ -144,14 +144,13 @@ namespace Bangboom.Player.Server
             serverTickNumber = tempServerTickNumber;
             serverTickAccumulator = tempServerTickAccumulator;
         }
-
+        
         /// <summary>
         /// Performs player movement 
         /// </summary>
-        /// <param name="stickMove"></param>
-        private void Move(Vector2 stickMove)
+        private void Move(Vector2 movementDirection)
         {
-           // clientRigidbody.velocity = stickMove * 10;
+            movementStateMachine.MovementDirection = movementDirection;
         }
         
         /// <summary>

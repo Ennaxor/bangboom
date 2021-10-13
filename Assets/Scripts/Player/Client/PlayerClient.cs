@@ -165,7 +165,6 @@ namespace Bangboom.Player.Client
             // If the packet is valid update our network proxy
             if (!float.IsNaN(receivedStateMsg.Position.x))
             {
-                Debug.LogWarning("------------------------- 1");
                 proxyClientPlayer.position = Vector3.Lerp(proxyClientPlayer.position,
                     receivedStateMsg.Position, 0.5f);
                 proxyClientPlayer.rotation = receivedStateMsg.Rotation;
@@ -176,7 +175,6 @@ namespace Bangboom.Player.Client
             // If the packet is valid update skew our visible players velociy to anticipate corrections
             if (!float.IsNaN(receivedStateMsg.Velocity.x))
             {
-                Debug.LogWarning("------------------------- 2");
                 movementStateMachine.RigidBody2D.velocity = Vector3.Slerp(movementStateMachine.RigidBody2D.velocity, receivedStateMsg.Velocity, 0.3f);
             }
 
@@ -204,7 +202,6 @@ namespace Bangboom.Player.Client
             
             if ((proxyClientPlayer.position - movementStateMachine.RigidBody2D.position).sqrMagnitude >= .1f)
             {
-                Debug.LogWarning("------------------------- 3");
                 movementStateMachine.RigidBody2D.position = Vector3.Lerp(movementStateMachine.RigidBody2D.position, proxyClientPlayer.position,
                     dt * smoothingSpeed);
             }
@@ -219,7 +216,7 @@ namespace Bangboom.Player.Client
             currentState.Position = rigidBody.position;
             currentState.Rotation = rigidBody.rotation;
             
-            //Move(inputs.MovementDirection);
+            Move(inputs.MovementDirection);
 
             if (inputs.SubmitButton == 1)
             {
@@ -230,10 +227,10 @@ namespace Bangboom.Player.Client
         /// <summary>
         /// Performs player movement 
         /// </summary>
-      /*  private void Move(Vector2 movementDirection)
+        private void Move(Vector2 movementDirection)
         {
-            clientRigidbody.velocity = movementDirection * 10;
-        }*/
+            movementStateMachine.MovementDirection = movementDirection;
+        }
         
         /// <summary>
         /// Performs player input submit 
@@ -256,12 +253,14 @@ namespace Bangboom.Player.Client
             var inputListStick = new List<Vector2>();
             var inputListMouse = new List<Vector3>();
 
-            for (var i = 0; i < clientInputMsg.Inputs.Count; i++)
+            var inputList = clientInputMsg.Inputs;
+            var inputListAmount = inputList.Count;
+            
+            for (var i = 0; i < inputListAmount; i++)
             {
                 //Save the length of the inputlist to expect when recieving
                 //This lets us find at which point in the lists a new message begins
-                var inputList = clientInputMsg.Inputs;
-
+                
                 foreach (var input in inputList)
                 {
                     inputListSubmit.Add(input.SubmitButton);

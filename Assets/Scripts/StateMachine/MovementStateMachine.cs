@@ -6,13 +6,14 @@ namespace Bangboom.StateMachine
 {
 	public class MovementStateMachine : StateMachine
 	{
-		[HideInInspector] public Idle IdleState;
-		[HideInInspector] public Moving MovingState;
-
+		[HideInInspector] public Vector2 MovementDirection;
+		
+		public Idle IdleState;
+		public Moving MovingState;
+		
 		[Header("Player Logic")]
 		public InputReader InputReader;
 		public Rigidbody2D RigidBody2D;
-		public PhotonView View;
 		public float Speed = 4f;
 
 		private void Awake()

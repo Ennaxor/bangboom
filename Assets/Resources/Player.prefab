@@ -206,6 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputReader: {fileID: 1440985153725736604}
+  MovementDirection: {x: 0, y: 0}
   RigidBody2D: {fileID: 8275508793542446121}
   View: {fileID: 6055657779995266764}
   Speed: 6

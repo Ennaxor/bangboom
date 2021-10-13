@@ -14,19 +14,15 @@ namespace Bangboom.StateMachine
 		public override void Enter()
 		{
 			base.Enter();
+			
 			movementStateMachine.RigidBody2D.velocity = Vector2.zero;
 		}
 
 		public override void OnUpdateLogic()
 		{
-			if(!movementStateMachine.View.IsMine)
-			{
-				return;
-			}
-			
 			base.OnUpdateLogic();
 
-			var movementDirection = movementStateMachine.InputReader.MovementDirection;
+			var movementDirection = movementStateMachine.MovementDirection;
 
 			if(IsInputMoreThanZero(movementDirection.x) || IsInputMoreThanZero(movementDirection.y))
 			{
