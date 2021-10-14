@@ -15,6 +15,7 @@ namespace Bangboom.StateMachine
 		[Header("Player Logic")]
 		public InputReader InputReader;
 		public Rigidbody2D RigidBody2D;
+		public Animator Animator;
 		public float Speed = 4f;
 		[SerializeField] private PhotonView view;
 

@@ -1,3 +1,4 @@
+using BangBoom.Config;
 using UnityEngine;
 
 namespace Bangboom.StateMachine
@@ -14,7 +15,7 @@ namespace Bangboom.StateMachine
 		public override void Enter()
 		{
 			base.Enter();
-			
+			movementStateMachine.Animator.SetBool(AnimationData.IsWalkingParam, false);
 			movementStateMachine.RigidBody2D.velocity = Vector2.zero;
 		}
 
@@ -24,12 +25,12 @@ namespace Bangboom.StateMachine
 
 			var movementDirection = movementStateMachine.MovementDirection;
 
-			if(IsInputMoreThanZero(movementDirection.x) || IsInputMoreThanZero(movementDirection.y))
+			if(IsInputDoesNotEqualZero(movementDirection.x) || IsInputDoesNotEqualZero(movementDirection.y))
 			{
 				StateMachine.ChangeState(movementStateMachine.MovingState);
 			}
 		}
 
-		private bool IsInputMoreThanZero(float input) => Mathf.Abs(input) > Mathf.Epsilon;
+		private bool IsInputDoesNotEqualZero(float input) => Mathf.Abs(input) > Mathf.Epsilon;
 	}
 }
