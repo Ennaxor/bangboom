@@ -617,6 +617,18 @@
           <e p="config" t="Include">
             <e p="GameScenes.cs" t="Include" />
           </e>
+          <e p="Events" t="Include">
+            <e p="DefaultGameEvent.cs" t="Include" />
+            <e p="GameEvent.cs" t="Include" />
+            <e p="GameObjectGameEvent.cs" t="Include" />
+            <e p="IntGameEvent.cs" t="Include" />
+            <e p="Listeners" t="Include">
+              <e p="DefaultGameEventListener.cs" t="Include" />
+              <e p="GameEventListener.cs" t="Include" />
+              <e p="GameObjectGameEventListener.cs" t="Include" />
+              <e p="IntGameEventListener.cs" t="Include" />
+            </e>
+          </e>
           <e p="Player" t="Include">
             <e p="Client" t="Include">
               <e p="PlayerClient.cs" t="Include" />
@@ -630,6 +642,9 @@
             <e p="Server" t="Include">
               <e p="PlayerServer.cs" t="Include" />
             </e>
+          </e>
+          <e p="PoolSystem" t="Include">
+            <e p="PoolSystem.cs" t="Include" />
           </e>
           <e p="Server" t="Include">
             <e p="ConnectToServerController.cs" t="Include" />
